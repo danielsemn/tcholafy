@@ -1,0 +1,156 @@
+body {
+    background: rgb(212, 211, 211); /* branco transparente */
+    height: 100vh;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em; /* Adicionado padding para melhor espaçamento em telas menores */
+    overflow: hidden; /* Impede rolagem vertical e horizontal */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url('../imagem/walpaper.jpg') center/cover no-repeat;
+    filter: blur(10px);
+    transform: scale(1.05); /* pra esconder as bordas borradas */
+    z-index: -1;
+}
+
+.music-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 2em 0 2em 0;
+    max-width: 90vw;
+    aspect-ratio: 9/16;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 2px 2px 20px rgba(255, 255, 255, 0.432);
+    color: inherit;
+    padding: 2em;
+    transition: transform 0.3s, box-shadow 0.3s, background-image 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+#below-cover {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2em 0 1em 0;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button {
+    background-color: inherit;
+    border: none;
+    font-size: 1.5em;
+}
+
+.button-navigate {
+    color: white;
+    background-color: inherit;
+    border: none;
+    font-size: 3em;
+}
+
+.button-biggest {
+    color: white;
+    background-color: inherit;
+    border: none;
+    font-size: 4em;
+}
+
+#cover {
+    width: 450px;
+    aspect-ratio: 1/1;
+    border-radius: 1em;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.726);
+}
+
+#playlist-title { 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    margin: 2em 0 2em 0; 
+} 
+
+#song-name {
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+.light-color {
+    color: rgb(141, 147, 148);
+}
+
+#progress-bar {
+    background-color: rgb(165, 175, 177);
+    height: 3px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+#current-progress {
+    --progress: 0%; /*variável no css*/
+    background-color: white;
+    height: inherit;
+    width: var(--progress);
+    border-radius: inherit;
+}
+
+#progress-container {
+    padding-bottom: 1em;
+}
+
+/* Media query para telas menores (celular) */
+@media (max-width: 767px) {
+    body {
+        padding: 0.5em; /* Menos padding para telas pequenas */
+    }
+
+    .music-container {
+        margin: 1em 0 0 0; /* Menos margem superior */
+        padding: 1em; /* Menos padding interno */
+    }
+
+    #cover {
+        width: 80vw; /* Ajuste relativo para caber na tela */
+        max-width: 300px; /* Limite máximo menor */
+    }
+
+    #song-name {
+        font-size: 1.2em; /* Fonte menor para celular */
+    }
+
+    .button {
+        font-size: 1.2em; /* Botões menores */
+    }
+
+    .button-navigate {
+        font-size: 2.5em;
+    }
+
+    .button-biggest {
+        font-size: 3.5em;
+    }
+
+    #below-cover {
+        margin: 1.5em 0 0.5em 0; /* Margens ajustadas */
+    }
+
+    #playlist-title {
+        margin: 1.5em 0 1.5em 0;
+    }
+}
