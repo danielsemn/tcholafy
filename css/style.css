@@ -114,6 +114,24 @@ body::before {
     padding-bottom: 1em;
 }
 
+/* Estilos adicionais para completar o CSS */
+.button-active {
+    color: #814c8b; /* Cor vermelha para botões ativos (like, shuffle, repeat) */
+}
+
+#song-time, #total-time {
+    font-size: 0.8em;
+    color: rgb(141, 147, 148);
+}
+
+#progress-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 /* Media query para telas menores (celular) */
 @media (max-width: 767px) {
     body {
@@ -152,5 +170,9 @@ body::before {
 
     #playlist-title {
         margin: 1.5em 0 1.5em 0;
+    }
+
+    #song-time, #total-time {
+        font-size: 0.7em; /* Fonte ainda menor para celular */
     }
 }
