@@ -86,7 +86,7 @@ const ouvirEstrelas = {
 };
 
 // Playlist e controle de estado
-const originalPlaylist = [vambora, tentaAcreditar, naoSeiDancar, cincoMinutos, naoEfacil, naoOlhePraTras, lanternaDosAfogados, obrigadoPorTerSeMandado, comoEuQuero, ouvirEstrelas];
+const originalPlaylist = [comoEuQuero, cincoMinutos, lanternaDosAfogados, naoEfacil, naoOlhePraTras, naoSeiDancar, obrigadoPorTerSeMandado, ouvirEstrelas, tentaAcreditar, vambora];
 let sortedPlaylist = [...originalPlaylist];
 let index = 0;
 let isPlaying = false;
@@ -275,3 +275,4 @@ const storedPlaylist = JSON.parse(localStorage.getItem('playlist')) ?? originalP
 originalPlaylist.splice(0, originalPlaylist.length, ...storedPlaylist);
 sortedPlaylist = [...originalPlaylist];
 initializeSong();
+
