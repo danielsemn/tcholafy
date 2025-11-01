@@ -38,7 +38,7 @@ const naoEfacil = {
     artist: "Marisa Monte",
 };
 
-const naoOlhePraTras  = {
+const naoOlhePraTras = {  // Corrigido: removido espaço extra antes do =
     songName: "Não Olhe Pra Trás", 
     file: "capital_inicial_nao_olhe_pra_tras",
     artist: "Capital Inicial",
@@ -47,7 +47,7 @@ const naoOlhePraTras  = {
 const lanternaDosAfogados = {
     songName: "Lanterna Dos Afogados", 
     file: "cassia_eller_lanterna_dos_afogados",
-    artist: "Cássia Eler",
+    artist: "Cássia Eller",
 };
 
 const obrigadoPorTerSeMandado = {
@@ -75,10 +75,13 @@ let isPlaying = false;
 
 // Função para inicializar a música atual
 function initializeSong() {
+    // Corrigido: caminhos assumindo que 'songs' e 'imagem' estão no mesmo nível do HTML
+    // Se sua estrutura for diferente, ajuste (ex.: use caminhos absolutos como '/songs/...')
     cover.src = `./imagem/${playlist[index].file}.jpg`;
     songName.innerText = playlist[index].songName;
     bandName.innerText = playlist[index].artist;
-    song.src = `../songs/${playlist[index].file}.mp3`;
+    song.src = `./songs/${playlist[index].file}.mp3`;  // Corrigido: mudado de '../songs/' para './songs/' para consistência
+    console.log("Música inicializada:", playlist[index].songName);  // Log para depuração
 }
 
 // Função para tocar a música
@@ -136,8 +139,8 @@ previous.addEventListener("click", previousSong);
 // Inicializa a primeira música ao carregar
 initializeSong();
 
-const currentProgress = document.getElementById("current-progress")
-
+// Barra de progresso
+const currentProgress = document.getElementById("current-progress");
 
 function updateProgressBar() {
     const barWidth = (song.currentTime / song.duration) * 100;
@@ -160,3 +163,9 @@ function jumpTo(event) {
     const jumpToTime = (clickPosition / width) * song.duration; // calcula tempo proporcional
     song.currentTime = jumpToTime; // atualiza o tempo da música
 }
+
+// Adicionado: Tratamento de erro para carregamento de áudio
+song.addEventListener('error', function(e) {
+    console.error("Erro ao carregar a música:", e.target.error, "Arquivo:", song.src);
+    alert("Erro ao carregar a música. Verifique se o arquivo existe e o caminho está correto.");
+});
