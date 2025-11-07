@@ -135,12 +135,13 @@ body::before {
 /* Media query para telas menores (celular) */
 @media (max-width: 767px) {
     body {
-        padding: 0.5em; /* Menos padding para telas pequenas */
+        padding: 0.5em;
+        justify-content: center;  /* Adicionado: Centraliza verticalmente apenas em mobile */
     }
-
     .music-container {
-        margin: 1em 0 0 0; /* Menos margem superior */
-        padding: 1em; /* Menos padding interno */
+        margin: 0 0 10% 0; /* Ajustado de 25% para 10% — equilíbrio entre espaço e conteúdo */
+        padding: 1em; /* Mantém */
+        overflow: hidden; /* Previne rolagem horizontal */
     }
 
     #cover {
@@ -176,3 +177,4 @@ body::before {
         font-size: 0.7em; /* Fonte ainda menor para celular */
     }
 }
+
